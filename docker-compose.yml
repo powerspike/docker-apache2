@@ -1,0 +1,11 @@
+services:
+  www:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./public_html:/usr/local/apache2/htdocs/:cached
+      - ./docker/apache2/httpd.conf:/usr/local/apache2/conf/httpd.conf:cached
+    ports:
+      - 80:80
+    container_name: CONTAINER-NAME-HERE
